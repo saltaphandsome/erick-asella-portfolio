@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio of Muhammad Erick Asella, commis chef: dishes from UNO MAS at Centara Grand and Le Cordon Bleu Dusit.">
+<title>Muhammad Erick Asella</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@400;500&display=swap">
+<style>
+/* Layout: a printed tasting menu — dark ground, gold course headings, each dish a photo + its components line, venue as provenance. */
+:root {
+  --bg: #0b0a08;
+  --surface: #15130f;
+  --fg: #ede7dc;
+  --muted: #9a9183;
+  --gold: #c2a46e;
+  --rule: #3a3326;
+  --display: "Lora", Georgia, "Times New Roman", serif;
+  --body: "Lora", Georgia, serif;
+  --label: "Jost", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0;
+  background: var(--bg); color: var(--fg);
+  font-family: var(--body); font-size: 17px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 1120px; margin: 0 auto; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.label {
+  font-family: var(--label); font-size: 11.5px; font-weight: 500;
+  letter-spacing: .22em; text-transform: uppercase; color: var(--muted);
+}
+
+/* nav */
+nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--rule);
+}
+nav .wrap { display: flex; gap: 24px; align-items: center; padding-block: 14px; overflow-x: auto; scrollbar-width: none; }
+nav .wrap::-webkit-scrollbar { display: none; }
+nav .mark { font-family: var(--display); font-style: italic; color: var(--gold); white-space: nowrap; margin-right: auto; font-size: 17px; text-decoration: none; }
+nav a.label { text-decoration: none; white-space: nowrap; }
+nav a.label:hover { color: var(--gold); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: 1fr 1.25fr; gap: 56px; align-items: center; padding-block: 72px 88px; }
+.hero > div { min-width: 0; }
+.eyebrow { color: var(--gold); }
+.hero h1 {
+  font-family: var(--display); font-weight: 400; font-size: clamp(44px, 6.4vw, 76px);
+  line-height: 1.02; letter-spacing: -.01em; margin: 18px 0 16px; text-wrap: balance;
+}
+.hero h1 em { color: var(--gold); font-style: italic; }
+.intro { color: var(--muted); max-width: 40ch; margin: 0 0 28px; }
+.kitchens { display: grid; gap: 10px; margin: 0; padding: 18px 0 0; border-top: 1px solid var(--rule); list-style: none; }
+.kitchens li { display: flex; justify-content: space-between; gap: 16px; font-size: 15.5px; }
+.kitchens li span:last-child { color: var(--muted); font-style: italic; text-align: right; }
+.triptych { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; align-items: center; }
+.triptych img { width: 100%; aspect-ratio: 9 / 17; object-fit: cover; border: 1px solid var(--rule); padding: 5px; background: var(--surface); display: block; }
+.triptych img:nth-child(2) { transform: translateY(28px); }
+
+/* courses */
+section { padding-block: 56px; border-top: 1px solid var(--rule); scroll-margin-top: 60px; }
+.course-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 36px; }
+.course-head h2 { font-family: var(--display); font-weight: 400; font-size: clamp(28px, 3.6vw, 38px); margin: 0; text-wrap: balance; }
+.course-head h2 em { color: var(--gold); }
+.dishes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 48px; }
+.dish { display: grid; grid-template-columns: 168px minmax(0, 1fr); gap: 22px; align-items: start; }
+.dish img { width: 168px; max-width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+.dish h3 { font-family: var(--display); font-style: italic; font-weight: 400; color: var(--gold); font-size: 23px; line-height: 1.2; margin: 2px 0 6px; text-wrap: balance; }
+.dish .label { font-size: 10.5px; display: block; margin-bottom: 10px; }
+.dish p { margin: 0; }
+
+/* events */
+.event-note { font-style: italic; color: var(--muted); margin: -20px 0 32px; max-width: 60ch; }
+.gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.gallery.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gallery figure { margin: 0; }
+.gallery img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
+.gallery figcaption { font-family: var(--display); font-style: italic; color: var(--gold); font-size: 19px; margin-top: 12px; }
+
+/* contact */
+.contact { padding-block: 80px 96px; text-align: left; }
+.contact h2 { font-family: var(--display); font-weight: 400; font-size: clamp(36px, 5vw, 56px); margin: 14px 0 32px; }
+.contact h2 em { color: var(--gold); }
+.lines { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 28px; }
+.lines > div { min-width: 0; }
+.lines .val { font-size: 18px; margin-top: 8px; overflow-wrap: anywhere; user-select: all; }
+.lines a.val { display: block; text-decoration-color: var(--rule); text-underline-offset: 4px; user-select: text; }
+.lines a.val:hover { text-decoration-color: var(--gold); }
+footer { padding-block: 24px 40px; border-top: 1px solid var(--rule); color: var(--muted); }
+
+@media (max-width: 880px) {
+  .hero { grid-template-columns: 1fr; gap: 40px; padding-block: 48px 64px; }
+  .dishes { grid-template-columns: 1fr; gap: 32px; }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .dish { grid-template-columns: 112px minmax(0, 1fr); gap: 16px; }
+  .dish img { width: 112px; }
+  .dish h3 { font-size: 20px; }
+  .gallery.three { grid-template-columns: 1fr; }
+  .gallery.three img { aspect-ratio: 4 / 3; }
+  .triptych { gap: 8px; }
+  .triptych img { padding: 3px; }
+  .triptych img:nth-child(2) { transform: translateY(16px); }
+  nav .mark { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="mark" href="#top">M. Erick Asella</a>
+    <a class="label" href="#cold-starters">Starters</a>
+    <a class="label" href="#canapes">Canapés</a>
+    <a class="label" href="#spanish">Spanish</a>
+    <a class="label" href="#french">French</a>
+    <a class="label" href="#events">Events</a>
+    <a class="label" href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+  <header class="hero">
+    <div>
+      <span class="label eyebrow">Commis Chef · Portfolio</span>
+      <h1>Muhammad <em>Erick Asella</em></h1>
+      <p class="intro">Selected dishes and service work from the line at UNO MAS, Centara Grand, classical training at Le Cordon Bleu Dusit, and my own creations.</p>
+      <ul class="kitchens">
+        <li><span>UNO MAS · Centara Grand</span><span>Spanish kitchen</span></li>
+        <li><span>Le Cordon Bleu Dusit</span><span>French cuisine</span></li>
+        <li><span>Personal creations</span><span>Canapés &amp; starters</span></li>
+      </ul>
+    </div>
+    <div class="triptych" aria-label="Erick at work">
+      <img src="img/hero-1.jpg" alt="Erick plating in chef whites at Le Cordon Bleu">
+      <img src="img/hero-2.jpg" alt="Erick working with liquid nitrogen at UNO MAS">
+      <img src="img/hero-3.jpg" alt="Erick in black chef jacket beside a banana-leaf spread">
+    </div>
+  </header>
+
+  <section id="cold-starters">
+    <div class="course-head"><h2>Cold <em>Starters</em></h2><span class="label">4 dishes</span></div>
+    <div class="dishes">
+      <article class="dish"><img src="img/tuna-tartare.jpg" alt="Tuna tartare" loading="lazy"><div><h3>Tuna Tartare</h3><span class="label">UNO MAS · Centara Grand</span><p>tuna tartare, grated cured egg yolk, ajo blanco, almond chips, herb oil</p></div></article>
+      <article class="dish"><img src="img/hamachi-aguachile.jpg" alt="Hamachi aguachile" loading="lazy"><div><h3>Hamachi Aguachile</h3><span class="label">UNO MAS · Centara Grand</span><p>hamachi, aguachile, sweet potato purée, sliced vegetables</p></div></article>
+      <article class="dish"><img src="img/chefs-oysters.jpg" alt="The Chef's Oysters" loading="lazy"><div><h3>The Chef’s Oysters</h3><span class="label">UNO MAS · Centara Grand</span><p>oysters, aguachile, pickled shallots, coriander</p></div></article>
+      <article class="dish"><img src="img/salmon-mosaic.jpg" alt="Salmon mosaic" loading="lazy"><div><h3>Salmon Mosaic</h3><span class="label">Personal creation</span><p>salmon mosaic, cucumber gazpacho, pickled vegetables, herb oil</p></div></article>
+    </div>
+  </section>
+
+  <section id="canapes">
+    <div class="course-head"><h2><em>Canapés</em></h2><span class="label">3 dishes</span></div>
+    <div class="dishes">
+      <article class="dish"><img src="img/pempek-canape.jpg" alt="Pempek canapé" loading="lazy"><div><h3>Pempek Canapé</h3><span class="label">Personal creation</span><p>pempek, sushi, pico de gallo, cuko sauce</p></div></article>
+      <article class="dish"><img src="img/salmon-canape.jpg" alt="Salmon canapé" loading="lazy"><div><h3>Salmon Canapé</h3><span class="label">Personal creation</span><p>salmon gravlax, cucumber, crème fraîche, tobiko, deep-fried capers</p></div></article>
+      <article class="dish"><img src="img/potato-beef-cheek.jpg" alt="Potato and beef cheek canapé" loading="lazy"><div><h3>Potato and Beef Cheek Canapé</h3><span class="label">Personal creation · UNO MAS</span><p>duchess potato, mayo-alioli, pulled beef cheek, caramelized onion</p></div></article>
+    </div>
+  </section>
+
+  <section id="spanish">
+    <div class="course-head"><h2>Spanish <em>Cuisine</em></h2><span class="label">UNO MAS · Centara Grand</span></div>
+    <div class="dishes">
+      <article class="dish"><img src="img/presa-iberica.jpg" alt="Presa Ibérica" loading="lazy"><div><h3>Presa Ibérica con Guarnición</h3><span class="label">UNO MAS · Centara Grand</span><p>charcoal-grilled presa, grilled eggplant, caramelized fish sauce, deep-fried broccolini, eggplant purée, red wine demi-glace</p></div></article>
+      <article class="dish"><img src="img/pulpo-gallega.jpg" alt="Pulpo a la gallega" loading="lazy"><div><h3>Pulpo a la Gallega</h3><span class="label">UNO MAS · Centara Grand</span><p>grilled octopus, patatas a lo pobre, sweet paprika, extra virgin olive oil</p></div></article>
+      <article class="dish"><img src="img/cochinillo.jpg" alt="Cochinillo a la segoviana" loading="lazy"><div><h3>Cochinillo a la Segoviana</h3><span class="label">UNO MAS · Centara Grand</span><p>cochinillo, red and green mojo, nam jim jaew, pork demi-glace</p></div></article>
+      <article class="dish"><img src="img/gambas-ajillo.jpg" alt="Gambas al ajillo" loading="lazy"><div><h3>Gambas al Ajillo</h3><span class="label">UNO MAS · Centara Grand</span><p>tiger prawns, garlic, rustic bread</p></div></article>
+      <article class="dish"><img src="img/parrillada.jpg" alt="Parrillada de verduras" loading="lazy"><div><h3>Parrillada de Verduras</h3><span class="label">UNO MAS · Centara Grand</span><p>grilled vegetables, romesco, almond chips</p></div></article>
+      <article class="dish"><img src="img/paella.jpg" alt="Paella valenciana" loading="lazy"><div><h3>Paella Valenciana</h3><span class="label">UNO MAS · Centara Grand</span><p>paella, chicken thighs, flat beans</p></div></article>
+    </div>
+  </section>
+
+  <section id="french">
+    <div class="course-head"><h2>French &amp; European <em>Mains</em></h2><span class="label">Le Cordon Bleu Dusit</span></div>
+    <div class="dishes">
+      <article class="dish"><img src="img/ribeye.jpg" alt="Bordeaux-style ribeye" loading="lazy"><div><h3>Bordeaux-Style Ribeye</h3><span class="label">Le Cordon Bleu Dusit</span><p>ribeye steak, glazed shallots and garlic, duchess potato, mushroom duxelles, red wine sauce</p></div></article>
+      <article class="dish"><img src="img/veal-paupiette.jpg" alt="Veal paupiette" loading="lazy"><div><h3>Veal Paupiette</h3><span class="label">Le Cordon Bleu Dusit</span><p>veal paupiette, glazed carrots, duchess potatoes, veal jus</p></div></article>
+      <article class="dish"><img src="img/pot-au-feu.jpg" alt="Pot-au-feu" loading="lazy"><div><h3>Pot-au-Feu</h3><span class="label">Le Cordon Bleu Dusit</span><p>cured duck thigh, spiced sausage, court-bouillon, daikon, bone marrow, vegetable greens</p></div></article>
+      <article class="dish"><img src="img/lamb-navarin.jpg" alt="Lamb navarin" loading="lazy"><div><h3>Lamb Navarin</h3><span class="label">Le Cordon Bleu Dusit</span><p>lamb stew, glazed vegetables, lamb jus</p></div></article>
+      <article class="dish"><img src="img/pork-rack.jpg" alt="Sautéed pork rack" loading="lazy"><div><h3>Sautéed Pork Rack</h3><span class="label">Le Cordon Bleu Dusit</span><p>pork rack, glazed leek, caramelized apples</p></div></article>
+    </div>
+  </section>
+
+  <section id="events">
+    <div class="course-head"><h2>Buffet <em>&amp; Service</em></h2><span class="label">17 May 2026</span></div>
+    <p class="event-note">Chaîne des Rôtisseurs Grand Chapitre Seafood Brunch at UNO MAS, Centara Grand.</p>
+    <div class="gallery">
+      <figure><img src="img/buffet-line.jpg" alt="Seafood brunch buffet line" loading="lazy"><figcaption>Buffet Line</figcaption></figure>
+      <figure><img src="img/lobster-display.jpg" alt="Maine lobster display" loading="lazy"><figcaption>Lobster Display</figcaption></figure>
+      <figure><img src="img/oyster-station.jpg" alt="Oyster station on ice" loading="lazy"><figcaption>Oyster Station</figcaption></figure>
+      <figure><img src="img/cold-starters-station.jpg" alt="Cold starters station with tuna tartare and gazpacho" loading="lazy"><figcaption>Cold Starters Station</figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="course-head"><h2>Event <em>Plating</em></h2><span class="label">Private lunch</span></div>
+    <p class="event-note">Plating for a private lunch event at UNO MAS, Centara Grand.</p>
+    <div class="gallery three">
+      <figure><img src="img/event-1.jpg" alt="Rows of plated desserts in the pass" loading="lazy"></figure>
+      <figure><img src="img/event-2.jpg" alt="Desserts with berries plated on coloured platters" loading="lazy"></figure>
+      <figure><img src="img/event-3.jpg" alt="Wide-rim bowls lined up for service" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <span class="label eyebrow">Get in touch</span>
+    <h2>Thank <em>you</em></h2>
+    <div class="lines">
+      <div><span class="label">Email</span><a class="val" href="mailto:merickas.bzn@gmail.com">merickas.bzn@gmail.com</a></div>
+      <div><span class="label">Phone</span><div class="val">+62 813 9829 4305</div></div>
+      <div><span class="label">LinkedIn</span><a class="val" href="https://linkedin.com/in/muhammad-erick-asella" target="_blank" rel="noopener">linkedin.com/in/muhammad-erick-asella</a></div>
+      <div><span class="label">Based in</span><div class="val">Tangerang Selatan, Banten, Indonesia</div></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap label">Muhammad Erick Asella · Commis Chef</div></footer>
+</body>
+</html>
