@@ -83,6 +83,23 @@ section { padding-block: 56px; border-top: 1px solid var(--rule); scroll-margin-
 .dish .label { font-size: 10.5px; display: block; margin-bottom: 10px; }
 .dish p { margin: 0; }
 
+/* cookbook teaser */
+.book { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 48px; align-items: center; }
+.book-cover { display: block; border: 1px solid var(--rule); padding: 6px; background: var(--surface); transform: rotate(-1.2deg); transition: transform .3s; }
+.book-cover:hover { transform: rotate(0); }
+.book-cover img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+.book h3 { font-family: var(--display); font-style: italic; font-weight: 400; color: var(--gold); font-size: clamp(26px, 3vw, 32px); margin: 0 0 12px; }
+.book p { color: var(--muted); margin: 0 0 22px; max-width: 52ch; }
+.book-list { list-style: none; margin: 0 0 28px; padding: 0; border-top: 1px solid var(--rule); }
+.book-list a { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--rule); text-decoration: none; }
+.book-list a:hover span:first-child { color: var(--gold); }
+.book-list a span:last-child { color: var(--muted); font-style: italic; text-align: right; }
+.book-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn { font-family: var(--label); font-size: 12px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; padding: 14px 22px; border: 1px solid var(--gold); background: var(--gold); color: var(--bg); transition: background .2s, color .2s; }
+.btn:hover { background: transparent; color: var(--gold); }
+.btn.ghost { background: transparent; color: var(--gold); }
+.btn.ghost:hover { background: var(--gold); color: var(--bg); }
+
 /* events */
 .event-note { font-style: italic; color: var(--muted); margin: -20px 0 32px; max-width: 60ch; }
 .gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
@@ -106,6 +123,8 @@ footer { padding-block: 24px 40px; border-top: 1px solid var(--rule); color: var
   .hero { grid-template-columns: 1fr; gap: 40px; padding-block: 48px 64px; }
   .dishes { grid-template-columns: 1fr; gap: 32px; }
   .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .book { grid-template-columns: 1fr; gap: 32px; }
+  .book-cover { max-width: 320px; }
 }
 @media (max-width: 520px) {
   body { font-size: 16px; }
@@ -130,6 +149,7 @@ footer { padding-block: 24px 40px; border-top: 1px solid var(--rule); color: var
     <a class="label" href="#canapes">Canapés</a>
     <a class="label" href="#spanish">Spanish</a>
     <a class="label" href="#french">French</a>
+    <a class="label" href="#cookbook">Cookbook</a>
     <a class="label" href="#events">Events</a>
     <a class="label" href="#contact">Contact</a>
   </div>
@@ -193,6 +213,25 @@ footer { padding-block: 24px 40px; border-top: 1px solid var(--rule); color: var
       <article class="dish"><img src="img/pot-au-feu.jpg" alt="Pot-au-feu" loading="lazy"><div><h3>Pot-au-Feu</h3><span class="label">Le Cordon Bleu Dusit</span><p>cured duck thigh, spiced sausage, court-bouillon, daikon, bone marrow, vegetable greens</p></div></article>
       <article class="dish"><img src="img/lamb-navarin.jpg" alt="Lamb navarin" loading="lazy"><div><h3>Lamb Navarin</h3><span class="label">Le Cordon Bleu Dusit</span><p>lamb stew, glazed vegetables, lamb jus</p></div></article>
       <article class="dish"><img src="img/pork-rack.jpg" alt="Sautéed pork rack" loading="lazy"><div><h3>Sautéed Pork Rack</h3><span class="label">Le Cordon Bleu Dusit</span><p>pork rack, glazed leek, caramelized apples</p></div></article>
+    </div>
+  </section>
+
+  <section id="cookbook">
+    <div class="course-head"><h2>The <em>Cookbook</em></h2><span class="label">Written &amp; cooked by me</span></div>
+    <div class="book">
+      <a class="book-cover" href="cookbook/"><img src="cookbook/img/cover.jpg" alt="Cover of the cookbook An Ode to Curiosity" loading="lazy"></a>
+      <div>
+        <h3>An Ode to Curiosity</h3>
+        <p>My cookbook from Le Cordon Bleu Dusit: two dishes written out component by component, with step photos from the kitchen and full food costing.</p>
+        <ul class="book-list">
+          <li><a href="cookbook/salmon-mosaic/"><span>Salmon Mosaic</span><span>Starter · 7 components</span></a></li>
+          <li><a href="cookbook/veal-provencale/"><span>Veal Provençale</span><span>Main · 8 components</span></a></li>
+        </ul>
+        <div class="book-actions">
+          <a class="btn" href="cookbook/">Read the cookbook</a>
+          <a class="btn ghost" href="cookbook/an-ode-to-curiosity.pdf" download>Download PDF</a>
+        </div>
+      </div>
     </div>
   </section>
 
